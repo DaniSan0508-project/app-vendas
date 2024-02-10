@@ -1,24 +1,13 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, SafeAreaView } from 'react-native';
 import styled from 'styled-components/native';
-
-const StyledContainer = styled.View`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  background-color: #ffffff;
-`;
-
-const StyledText = styled.Text`
-  font-size: 24px;
-  color: #333333;
-`;
+import Login from './modules/login';
 
 const App: React.FC = () => {
   return (
-    <StyledContainer>
-      <StyledText>Teste</StyledText>
-    </StyledContainer>
+    <SafeAreaView>
+      <Login />
+    </SafeAreaView>
   );
 };
 
