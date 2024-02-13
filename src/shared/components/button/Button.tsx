@@ -11,12 +11,18 @@ interface ButtonProps extends TouchableOpacityProps {
     type: string,
 }
 
+
+
 const Button = ({ title, type, margin, ...props }: ButtonProps) => {
+
+    const renderText = (color: string) => (
+     <TextInput type={textTypes.BUTTON_BOLD} color={color}>{title}</TextInput>
+)
     switch (type) {
         case theme.buttons.buttonsTheme.secondary:
             return (
                 <ButtonSecondary margin={margin} {...props}>
-                    <TextInput type={textTypes.BUTTON_BOLD} color={theme.colors.mainTheme.primary}>{title}</TextInput>
+                    {renderText(theme.colors.mainTheme.primary)}
                 </ButtonSecondary>
             );
         case theme.buttons.buttonsTheme.primary:
@@ -26,8 +32,8 @@ const Button = ({ title, type, margin, ...props }: ButtonProps) => {
                     <GradientButton
                         start={{ x: 0.0, y: 0.0 }}
                         end={{x:1.0, y:1.0 }}
-                        colors={[ theme.colors.purpleTheme.purple80, theme.colors.pinkTheme.pink80]}>
-                    <TextInput type={textTypes.BUTTON_BOLD} color={theme.colors.neutralTheme.white}>{ title }</TextInput>
+                        colors={[theme.colors.purpleTheme.purple80, theme.colors.pinkTheme.pink80]}>
+                        {renderText(theme.colors.neutralTheme.white)}
                     </GradientButton>
                 </ButtonContainer>
         )
