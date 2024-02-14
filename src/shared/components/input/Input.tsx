@@ -1,11 +1,16 @@
-import { TextInputProps } from "react-native";
+import { TextInputProps, View } from "react-native";
 import { ContainerInput } from "./input.style";
+import { DisplayFlexColumn } from "../globalStyles/globalView.style";
 
-type InputProps = TextInputProps;
+interface InputProps extends TextInputProps{
+    title?:string,
+}
 
-const Input = ({...props}:InputProps) => {
+const Input = ({title, ...props}:InputProps) => {
     return (
-        <ContainerInput {...props} />
+        <DisplayFlexColumn>
+            <ContainerInput {...props} />
+        </DisplayFlexColumn>
     )
 }
 

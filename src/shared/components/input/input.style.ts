@@ -1,4 +1,5 @@
 import styled from "styled-components/native";
+import { theme } from "../../themes/theme";
 
 export const ContainerInput = styled.TextInput`
     width: 100%;
@@ -7,4 +8,6 @@ export const ContainerInput = styled.TextInput`
     background-color: white;
     color: #888;
     border-radius: 4px;
+    border-width: 1px;
+    border-color: ${theme.colors.grayTheme.gray80};
 `
