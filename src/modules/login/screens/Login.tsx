@@ -13,7 +13,7 @@ const Login = () => {
     return (
         <ContainerLogin>
             <TextInput />
-            <Input />
+            <Input placeholder="Digite seu E-mail" title="E-mail" />
             <Button loading disable type={theme.buttons.buttonsTheme.primary} margin="8px" title="ENTRAR" onPress={handleOnPress} />
         </ContainerLogin>
     )

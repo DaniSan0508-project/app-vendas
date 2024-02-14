@@ -6,10 +6,11 @@ import { useMemo } from "react";
 interface TextProp extends TextProps {
     color?: string;
     type?: string;
+    margin?: string;
 }
 
 
-const TextInput = ({ color, type, ...props }: TextProp) => {
+const TextInput = ({ color, type, margin, ...props }: TextProp) => {
     const handleFonteSize = useMemo(() => {
         switch (type) {
             case textTypes.TITLE_BOLD:
@@ -73,7 +74,7 @@ const fontFamily = useMemo(() => {
     
 
 
-    return <ContainerText fontFamily={fontFamily} fontSize={handleFonteSize} color={color} {...props} />;
+    return <ContainerText margin={margin} fontFamily={fontFamily} fontSize={handleFonteSize} color={color} {...props} />;
 }
 
 export default TextInput;
