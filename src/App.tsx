@@ -12,6 +12,7 @@ const App: React.FC = () => {
     'Poppins-Italic': require('./assets/fonts/Poppins-Italic.ttf'),
     'Poppins-Light': require('./assets/fonts/Poppins-Light.ttf'),
     'Poppins-Regular': require('./assets/fonts/Poppins-Regular.ttf'),
+    'Poppins-SemiBold': require('./assets/fonts/Poppins-SemiBold.ttf')
   });
 
   useEffect(() => {

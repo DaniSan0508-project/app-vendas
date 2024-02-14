@@ -25,7 +25,7 @@ const Button = ({ title, type, onPress, loading, disable, margin, ...props }: Bu
 
     const renderText = (color: string) => (
         <>
-            <TextInput type={textTypes.BUTTON_BOLD} color={color}>{title}</TextInput>
+            <TextInput type={textTypes.BUTTON_SEMI_BOLD} color={color}>{title}</TextInput>
             {loading && <ActivityIndicator color={theme.colors.neutralTheme.white} />}
         </>
     )
