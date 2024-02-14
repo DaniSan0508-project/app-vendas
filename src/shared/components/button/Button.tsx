@@ -1,5 +1,5 @@
 import { TouchableOpacityProps } from "react-native";
-import { ActivityIndicator, ButtonContainer, ButtonSecondary, GradientButton } from "./button.style";
+import { ActivityIndicator, ButtonContainer, ButtonDisable, ButtonSecondary, GradientButton } from "./button.style";
 import TextInput from "../text/Text";
 import { theme } from "../../themes/theme";
 import { textTypes } from "../text/textTypes";
@@ -10,15 +10,15 @@ interface ButtonProps extends TouchableOpacityProps {
     margin?: string;
     type: string;
     disable?: boolean;
-    loading: boolean;
-    onPress: () => void;
+    loading?: boolean;
+    onPress?: () => void;
 }
 
 
 
 const Button = ({ title, type, onPress, loading, disable, margin, ...props }: ButtonProps) => {
     const handleOnPress = () => {
-        if (!loading && !disable) {
+        if (!loading && !disable && onPress) {
             onPress();
         }
     }
@@ -27,7 +27,16 @@ const Button = ({ title, type, onPress, loading, disable, margin, ...props }: Bu
         <>
             <TextInput type={textTypes.BUTTON_BOLD} color={color}>{title}</TextInput>
             {loading && <ActivityIndicator color={theme.colors.neutralTheme.white} />}
-        </>)
+        </>
+    )
+
+    if (disable) {
+        return (
+            <ButtonDisable {...props} margin={margin}>
+                {renderText(theme.colors.neutralTheme.white)}
+            </ButtonDisable>
+        )
+    }
      
     switch (type) {
         case theme.buttons.buttonsTheme.secondary:
